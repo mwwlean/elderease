@@ -6,12 +6,11 @@ import { useFormContext } from '../../context/AdminFormContext';
 import '../../scss/dashboard.scss'
 import FileUploadCitizen from '../FileUploadCitizen';
 import { useSCFormContext } from '../../context/ScFormContext';
+import { Plus, Printer, Archive, Pencil, Trash2, Users } from "lucide-react";
 import { Link } from 'react-router-dom';
 import QRCode from 'react-qr-code';
 
 const SCChapter = () => {
-
-
     const { isAdminAuthenticated } = useFormContext();
     const { formData,setFormData, handleCreateDone, isShowID, setIsShowID, initialData } = useSCFormContext();
     const [adminData, setAdminData] = useState(null);
@@ -448,47 +447,72 @@ const SCChapter = () => {
     }, []);  
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-white to-purple-50">
-            <div className='dashboard-comp'>
+            <div className="min-h-screen bg-gradient-to-br from-white to-purple-50">
+            <div className="dashboard-comp">
                 <Navbar getImagePath={getImagePath} adminData={adminData} />
                 <Sidebar getImagePath={getImagePath} adminData={adminData} />
                 <div className="dash-body flex items-start justify-between ml-72">
-                    <div className="dashboard-main w-full ">
-                        <div className="dash-title flex items-center justify-start gap-5 p-4">
-                            <h1 className='text-2xl'> 
-                                Senior Citizen Management
-                                <br/>
-                                SC Chapter  
-                            </h1>
+                    <div className="dashboard-main w-full">
+                        <div className="flex flex-col mb-4">
+                        <div className="flex items-center gap-3">
+                            <Users className="w-8 h-8 text-purple-500" />
+                            <h1 className="text-3xl font-bold text-gray-800">Senior Citizen Management</h1>
                         </div>
-                        <div className="option-data flex items-start justify-between gap-7">
-                            <div className="search-item flex items-center justify-center gap-3">
-                                <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path fillRule="evenodd" clipRule="evenodd" d="M11.125 3.00007C8.97012 3.00007 6.90349 3.8561 5.37976 5.37983C3.85602 6.90356 3 8.97019 3 11.1251C3 13.28 3.85602 15.3466 5.37976 16.8703C6.90349 18.394 8.97012 19.2501 11.125 19.2501C13.2799 19.2501 15.3465 18.394 16.8702 16.8703C18.394 15.3466 19.25 13.28 19.25 11.1251C19.25 8.97019 18.394 6.90356 16.8702 5.37983C15.3465 3.8561 13.2799 3.00007 11.125 3.00007ZM0.5 11.1251C0.500144 9.43081 0.905455 7.76115 1.68212 6.25539C2.45878 4.74963 3.58427 3.45144 4.96469 2.46912C6.34511 1.4868 7.94043 0.848835 9.61755 0.608458C11.2947 0.368081 13.005 0.532259 14.6057 1.0873C16.2065 1.64233 17.6513 2.57213 18.8197 3.79912C19.988 5.02611 20.846 6.5147 21.322 8.14071C21.798 9.76673 21.8783 11.483 21.5561 13.1463C21.234 14.8097 20.5187 16.3719 19.47 17.7026L24.035 22.2676C24.2627 22.5033 24.3887 22.8191 24.3858 23.1468C24.383 23.4746 24.2515 23.7881 24.0198 24.0198C23.788 24.2516 23.4745 24.3831 23.1468 24.3859C22.819 24.3888 22.5033 24.2628 22.2675 24.0351L17.7025 19.4701C16.1358 20.7051 14.253 21.474 12.2697 21.6889C10.2863 21.9039 8.28253 21.5561 6.48762 20.6854C4.69271 19.8146 3.1792 18.4562 2.12029 16.7654C1.06138 15.0747 0.499866 13.12 0.5 11.1251ZM9.875 6.75007C9.875 6.41855 10.0067 6.10061 10.2411 5.86619C10.4755 5.63177 10.7935 5.50007 11.125 5.50007C12.6168 5.50007 14.0476 6.09271 15.1025 7.1476C16.1574 8.20249 16.75 9.63323 16.75 11.1251C16.75 11.4566 16.6183 11.7745 16.3839 12.009C16.1495 12.2434 15.8315 12.3751 15.5 12.3751C15.1685 12.3751 14.8505 12.2434 14.6161 12.009C14.3817 11.7745 14.25 11.4566 14.25 11.1251C14.25 10.2963 13.9208 9.50142 13.3347 8.91536C12.7487 8.32931 11.9538 8.00007 11.125 8.00007C10.7935 8.00007 10.4755 7.86838 10.2411 7.63396C10.0067 7.39954 9.875 7.08159 9.875 6.75007Z" fill="black"/>
-                                </svg>
-                                <input 
-                                    type="text" 
-                                    name="searchCitizen" 
-                                    placeholder='Search Citizens Here!' id="" 
-                                    value={searchTerm}
-                                    onChange={(e) => setSearchTerm(e.target.value)}    
+                        <span className="text-sm font-medium text-purple-500 tracking-wide pl-11">SC Chapter</span>
+                        </div>
+                        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-5">
+                        <div className=" flex items-center w-full md:w-auto bg-white border border-violet-200 shadow-sm px-4 py-2 rounded-full gap-2">
+                            <svg className="w-5 h-5 text-violet-500" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                            <circle cx="11" cy="11" r="8" />
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                            </svg>
+                            <input
+                            type="text"
+                            name="searchCitizen"
+                            placeholder="Search Citizens Here!"
+                            className="bg-transparent focus:outline-none w-full md:w-56"
+                            value={searchTerm}
+                            onChange={(e) => setSearchTerm(e.target.value)}
+                            />
+                        </div>
+                        <div className="flex items-center gap-3">
+                        <button
+                            onClick={() => setIsCreateButtonClicked(!isCreateButtonClicked)}
+                            className="flex items-center gap-2 px-4 py-2 bg-green-500 text-white font-semibold rounded-full shadow hover:bg-green-600 transition"
+                        >
+                            <Plus className="w-4 h-4" />
+                            Add New Applicant
+                        </button>
+                        <button className="flex items-center gap-2 px-4 py-2 bg-violet-500 text-white font-semibold rounded-full shadow hover:bg-violet-600 transition">
+                            <Printer className="w-4 h-4" />
+                            Print MasterList
+                        </button>
+                        <Link
+                            to={"/admin/binscchapter"}
+                            className="flex items-center gap-2 px-4 py-2 bg-fuchsia-500 text-white font-semibold rounded-full shadow hover:bg-fuchsia-600 transition"
+                        >
+                            <Archive className="w-4 h-4" />
+                            Bin
+                        </Link>
+                        </div>
+                        </div>
+                        {/* Edit Form */}
+                        {editData && (
+                        <div className="edit-content bg-white rounded-2xl shadow-lg p-6 mb-6">
+                            <h2 className="text-lg font-bold mb-4">Edit Citizen Info</h2>
+                            <form onSubmit={handleFormSubmit} className="form-container grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label className="block font-medium mb-1" htmlFor="firstName">First Name</label>
+                                <input
+                                id="firstName"
+                                type="text"
+                                name="firstName"
+                                value={formData.firstName}
+                                onChange={handleInputChange}
+                                className="w-full px-3 py-2 border border-gray-200 rounded-lg focus:border-violet-400"
                                 />
                             </div>
-                            <div className="applicant-opt flex items-center justify-center gap-3">
-                                <button onClick={() => setIsCreateButtonClicked(!isCreateButtonClicked)}> + Add New Applicant   </button>
-                                <button> Print MasterList </button>
-                                <button> 
-                                    <Link to={'/admin/binscchapter'}>
-                                        Bin 
-                                    </Link>
-                                </button>
-                            </div>
-                        </div>
-
-                        {editData && (
-                            <div className="edit-content">
-                                <h2>Edit Citizen Info</h2>
-                                <form onSubmit={handleFormSubmit} className="form-container">
+                            <form onSubmit={handleFormSubmit} className="form-container">
                                     <div className="form-group">
                                         <label htmlFor="firstName">First Name:</label>
                                         <input
@@ -603,89 +627,133 @@ const SCChapter = () => {
                                         <button type="button" className="cancel-btn" onClick={handleCancel}>Cancel</button>
                                     </div>
                                 </form>
+                            <div className="col-span-full flex gap-3 mt-3">
+                                <button type="submit" className="submit-btn bg-violet-600 text-white py-2 px-6 rounded-full hover:bg-violet-700 transition font-semibold">Update</button>
+                                <button type="button" className="cancel-btn bg-gray-200 text-gray-700 py-2 px-6 rounded-full hover:bg-gray-300 transition font-semibold" onClick={handleCancel}>Cancel</button>
                             </div>
+                            </form>
+                        </div>
                         )}
-
-                        
-                        <div className="table-container">
-                            <table className="info-table">
-                                <thead>
-                                <tr>
-                                    <th>OSCA ID</th>
-                                    <th> Control No. </th>
-                                    <th>Full Name</th>
-                                    <th>Gender</th>
-                                    <th>Age</th>
-                                    <th>Birthday</th>
-                                    <th>Civil Status</th>
-                                    <th>Place of Birth</th>
-                                    <th>Address</th>
-                                    <th>Contact</th>
-                                    <th>Archive</th>
-                                    <th>Action</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-
-                                    {paginatedData.length > 0 ? (
-                                        paginatedData.map(item => (
-                                            <tr key={item.oscaID}>
-                                                <td>{item.oscaID}</td>
-                                                <td>{item.contrNum}</td>
-                                                <td>{`${item.firstName} ${item.middleName} ${item.lastName}`}</td>
-                                                <td>{item.gender}</td>
-                                                <td>{item.age}</td>
-                                                <td>{item.birthday}</td>
-                                                <td>{item.civilStat}</td>
-                                                <td>{item.placeOfBirth}</td>
-                                                <td>{item.address}</td>
-                                                <td>{item.contactNum}</td>
-                                                <td><button className="archive-btn" onClick={() => handleArchiveClick(item.oscaID)}>Archive</button></td>
-                                                <td>
-                                                <button className="edit-btn" onClick={() => handleEditClick(item)}>Edit</button> 
-                                                <button className="delete-btn" onClick={() => handleDeleteClick(item.oscaID)}>Delete</button>
-                                                </td>
-                                            </tr>
-                                        ))
-                                    ) : (
-                                        <tr>
-                                            <td colSpan="12">No data available</td>
-                                        </tr>
-                                    )}
-
-                                </tbody>
-                            </table>
-                            <div className="pagination-container">
-                                <button
-                                    className="pagination-btn"
-                                    onClick={() => handlePageChange(currentPage - 1)}
-                                    disabled={currentPage === 1}
-                                >
-                                    Previous
-                                </button>
-
-                                {/* Display page numbers */}
-                                {[...Array(totalPages).keys()].map(page => (
-                                    <button
-                                        key={page}
-                                        className={`pagination-btn ${currentPage === page + 1 ? 'active' : ''}`}
-                                        onClick={() => handlePageChange(page + 1)}
+                        {/* Data Table */}
+                        <div className="rounded-2xl overflow-x-auto">
+                        <table className="min-w-full divide-y divide-gray-200 border-separate mt-4" style={{ borderSpacing: 0 }}>
+                            <thead>
+                                <tr className="bg-gradient-to-br from-purple-500 via-purple-400 to-purple-300">
+                                {[
+                                    "OSCA ID",
+                                    "Control No.",
+                                    "Full Name",
+                                    "Gender",
+                                    "Age",
+                                    "Birthday",
+                                    "Civil Status",
+                                    "Place of Birth",
+                                    "Address",
+                                    "Contact",
+                                    "Archive",
+                                    "Action"
+                                ].map((label, i) => (
+                                    <th
+                                    key={label}
+                                    className={`px-4 py-6 text-nowrap text-sm font-bold text-white uppercase tracking-wider
+                                        ${i === 0 ? "rounded-tl-2xl" : ""}
+                                        ${i === 11 ? "rounded-tr-2xl" : ""}
+                                        ${label === "Archive" || label === "Action" ? "text-center" : "text-left"}
+                                    `}
                                     >
-                                        {page + 1}
-                                    </button>
+                                    {label}
+                                    </th>
                                 ))}
-
-                                <button
-                                    className="pagination-btn"
-                                    onClick={() => handlePageChange(currentPage + 1)}
-                                    disabled={currentPage === totalPages}
-                                >
-                                    Next
-                                </button>
-                            </div>
+                                </tr>
+                            </thead>
+                            <tbody className="divide-y divide-gray-200">
+                            {paginatedData.length > 0 ? (
+                                paginatedData.map(item => (
+                                <tr key={item.oscaID} className="hover:bg-violet-50 transition rounded-xl text-nowrap " >
+                                    <td className="px-4 py-3 font-mono text-violet-700">{item.oscaID}</td>
+                                    <td className="px-4 py-3">{item.contrNum}</td>
+                                    <td className="px-4 py-3">{`${item.firstName} ${item.middleName} ${item.lastName}`}</td>
+                                    <td className="px-4 py-3">{item.gender}</td>
+                                    <td className="px-4 py-3 text-center">{item.age}</td>
+                                    <td className="px-4 py-3">{item.birthday}</td>
+                                    <td className="px-4 py-3">{item.civilStat}</td>
+                                    <td className="px-4 py-3">{item.placeOfBirth}</td>
+                                    <td className="px-4 py-3">{item.address}</td>
+                                    <td className="px-4 py-3">{item.contactNum}</td>
+                                    <td className="px-4 py-3 text-center">
+                                        <button
+                                        className="px-3 py-3 text-sm font-semibold bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition inline-flex items-center gap-1"
+                                        onClick={() => handleArchiveClick(item.oscaID)}
+                                        title="Archive"
+                                        >
+                                        <Archive className="w-4 h-4 text-white" />
+                                        Archive
+                                        </button>
+                                    </td>
+                                    <td className="px-4 py-3 flex flex-col sm:flex-row gap-2 justify-center items-center">
+                                        <button
+                                        className="px-3 py-3 text-sm font-semibold bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition inline-flex items-center gap-1"
+                                        onClick={() => handleEditClick(item)}
+                                        title="Edit"
+                                        >
+                                        <Pencil className="w-4 h-4 text-white-500" />
+                                        
+                                        </button>
+                                        <button
+                                        className="px-3 py-3 text-sm font-semibold bg-red-500 text-white rounded-lg hover:bg-red-600 transition inline-flex items-center gap-1"
+                                        onClick={() => handleDeleteClick(item.oscaID)}
+                                        title="Delete"
+                                        >
+                                        <Trash2 className="w-4 h-4 text-white" />
+                                       
+                                        </button>
+                                    </td>
+                                    </tr>
+                                ))
+                            ) : (
+                                <tr>
+                                <td colSpan="12" className="py-8 text-center text-gray-500 rounded-b-2xl">
+                                    No data available
+                                </td>
+                                </tr>
+                            )}
+                            </tbody>
+                        </table>
+                        {/* Pagination */}
+                        <div className="pagination-container flex items-center justify-center gap-2 mt-6">
+                            <button
+                            className="pagination-btn px-4 py-2 bg-gray-200 text-gray-600 rounded-lg hover:bg-gray-300 transition disabled:opacity-50"
+                            onClick={() => handlePageChange(currentPage - 1)}
+                            disabled={currentPage === 1}
+                            >
+                            Previous
+                            </button>
+                            {[...Array(totalPages).keys()].map(page => (
+                            <button
+                                key={page}
+                                className={`pagination-btn px-3 py-1 rounded-lg ${
+                                currentPage === page + 1
+                                    ? "bg-violet-600 text-white font-bold"
+                                    : "bg-gray-100 text-gray-700 hover:bg-violet-50"
+                                } transition`}
+                                onClick={() => handlePageChange(page + 1)}
+                            >
+                                {page + 1}
+                            </button>
+                            ))}
+                            <button
+                            className="pagination-btn px-4 py-2 bg-gray-200 text-gray-600 rounded-lg hover:bg-gray-300 transition disabled:opacity-50"
+                            onClick={() => handlePageChange(currentPage + 1)}
+                            disabled={currentPage === totalPages}
+                            >
+                            Next
+                            </button>
+                        </div>
                         </div>
                     </div>
                 </div>
+  
+
                 {
                     isShowID && 
                     <div className="create-applicant absolute flex items-center justify-center">
@@ -883,7 +951,6 @@ const SCChapter = () => {
                                                     > 
                                                         Cancel 
                                                     </button>
-                                                    {/* Trigger form submit from outside */}
                                                     <button 
                                                         onClick={handleSubmit} 
                                                         className="submit-button w-full bg-violet-600 text-white py-3"
