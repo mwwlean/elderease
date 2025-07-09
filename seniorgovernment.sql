@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 04, 2025 at 04:22 PM
+-- Generation Time: Jul 09, 2025 at 08:40 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -45,18 +45,6 @@ CREATE TABLE `admins` (
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `admins`
---
-
-INSERT INTO `admins` (`oscaID`, `firstname`, `middlename`, `surname`, `birthday`, `age`, `gender`, `contact_number`, `role`, `address`, `image`, `username`, `password`, `created_at`, `updated_at`) VALUES
-(1, 'XXXX', 'XXX', 'CCCC', '1998-12-13', 25, 'Male', '0951352312', 'Admin', 'Matic', '/profile/2.png', 'Lleelee', '$2y$10$4fk5Juxdp8RygUhFyErLjOIru9Ov6hjdDF.nHlBF6PYNaoj.HzJRm', '2024-12-01 15:53:41', '2024-12-01 15:53:41'),
-(2, 'maddi', 'son', 'gurl', '1996-09-12', 28, 'Male', '0951352312', 'Admin', 'SSSDDS', '/profile/1.png', 'Maddison', '$2y$10$MnYZeDj8btqvm82csI6TCOsgf7AreNAid2sdyKQLGnu9.NTamxdp2', '2024-12-01 15:54:35', '2024-12-01 16:29:43'),
-(3, 'Julliet', 'Minnette', 'Minnesson', '1991-09-18', 33, 'Male', '0951352312', 'Admin', 'FDFFD', '/profile/2.png', 'Julian', '$2y$10$wtbPc3Bf2KY4rEm1DFuHq.vaK0yl6cXnieD8ZaIJwBh/aJ/O.R/eu', '2024-12-03 15:44:07', '2024-12-03 15:44:07'),
-(4, 'Amihan', 'Sasutana', 'Cruz', '2003-02-28', 21, 'Male', '09943431451', 'Admin', '481 N. Cruz St', '/profile/tatak-it-tatak-plp-0d97584b-1304-44a4-b602-3f05125d32fc.jpg', 'amihan', '$2y$10$QnN3zE.WmkONcuEjNjqbH.7nrMoI0RVVR1UJmKXnU3zYbcbFuPGWW', '2024-12-03 16:08:39', '2025-07-03 00:50:31'),
-(5, 'King Jorem', 'Banaag', 'Manggao', '1963-06-14', 61, 'Male', '+63951381211', 'Admin', '18 Velasquez Bagong Ilog', '/profile/1797597.png', 'jorem', '$2y$10$rTKWrLSM5DAW2VdkQL9rMulWb9Mm1fTfdrjLhF5Ep8nyOmbp7YvRK', '2025-03-11 09:54:05', '2025-03-11 09:54:05'),
-(6, 'Amihan', 'Sasutana', 'Cruz', '2003-02-28', 22, 'Male', '0912345678', 'Admin', '481 N. Cruz St', '/profile/PLP-Transparent Logo.png', 'test123', '$2y$10$nFRQYUJWbzgQ/0UK4vK3CegqJt2lnvYU8ir7JeUByLpsuwqOh6fme', '2025-07-03 00:54:06', '2025-07-03 00:54:06');
-
 -- --------------------------------------------------------
 
 --
@@ -67,16 +55,6 @@ CREATE TABLE `affilation` (
   `affilNo` int(11) NOT NULL,
   `affilDesc` varchar(250) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `affilation`
---
-
-INSERT INTO `affilation` (`affilNo`, `affilDesc`) VALUES
-(1, 'Listahan'),
-(2, 'Indigenous People'),
-(3, 'Pantawid Beneficiary'),
-(4, 'Senior Citizen Organization');
 
 -- --------------------------------------------------------
 
@@ -154,17 +132,6 @@ CREATE TABLE `citizen` (
   `hashpassword` varchar(255) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `citizen`
---
-
-INSERT INTO `citizen` (`oscaID`, `username`, `hashpassword`, `created_at`) VALUES
-(1, 'Manny', '$2y$10$cnYjzlGZ4en./by7AornJeEo.f/ymtnoq0dDTBUpEVrwS6s20EIEG', '2024-12-03 15:37:55'),
-(2, 'glenmore123', '$2y$10$WkKEglitscG5yLps9B5i0./6HrNBW0yUClorKofm2tfZlIhGYLq.6', '2024-12-03 15:59:09'),
-(3, 'glenmore123', '$2y$10$8cDh6Ys7RaJPuyWiBENOGOugbqg.lszPjH1fIAcoLvf12ta07zaDy', '2024-12-03 16:02:07'),
-(4, 'amihan', '$2y$10$Po9Vvq9Q1gMhBRqf7wH6ueYvcl4FB51lnjM0Fu2wNVpKV9NdaLSU.', '2024-12-03 16:06:57'),
-(5, 'test123', '$2y$10$u0rbMyz8sOpbhWPRDsbmNu/Q4f6ZRxfRsT1Z0c2edGB7sTXzWltiG', '2025-07-03 00:52:09');
 
 -- --------------------------------------------------------
 
@@ -256,15 +223,6 @@ CREATE TABLE `requirements` (
   `req` varchar(250) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `requirements`
---
-
-INSERT INTO `requirements` (`reqID`, `req`) VALUES
-(1, '1 x 1 ID Photo'),
-(2, 'Annual Dues = Php 120'),
-(3, 'Membership Fee = Php 50');
-
 -- --------------------------------------------------------
 
 --
@@ -306,10 +264,7 @@ CREATE TABLE `scinfo` (
 --
 
 INSERT INTO `scinfo` (`oscaID`, `lastName`, `firstName`, `middleName`, `suffix`, `gender`, `birthday`, `age`, `placeOfBirth`, `civilStat`, `contactNum`, `address`, `religion`, `citizenship`, `educAttain`, `tin`, `philHealth`, `dswdPensioner`, `livingArr`, `psource`, `psource_desc`, `contrNum`, `regSupport`, `date_created`, `img`, `type`, `archived`) VALUES
-(12115, 'Cruz', 'Adrian Rusell', 'Sasutana', '-', 'Male', '1952-02-28', 73, 'Pasig City', 'Widowed', 931235231, '11 Kalayaan St. Gahit', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 6098, NULL, '2025-07-04 08:04:58', '/profile/Cruz, Adrian Rusell.png', 'scChapter', 0),
-(28867, 'Enseñado', 'Glenmore', 'Serrano', 'Jr', 'Male', '2004-08-27', 20, 'Pasig City', 'Single', 931235231, '11 Kalayaan St. Gahit', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 6094, NULL, '2024-12-03 10:30:56', NULL, 'scChapter', 0),
-(28893, 'Cruz', 'Ahron Vince', 'Sasutana', '-', 'Male', '2010-11-28', 14, 'Pasig City', 'Single', 931235231, '481 N. Cruz St', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 6095, NULL, '2024-12-03 10:04:57', '/profile/NOGNOG.jpg', 'scChapter', 0),
-(28895, 'Sasutana', 'Amihan', 'Cruz', '', 'Male', '2003-02-28', 21, 'Pasig', 'Single', 2147483647, '481 N. CRUZ ST. VILLA RAYMUNDO', 'Roman Catholic', 'Filipino', 'college', 0, 0, 'others', 'highschool', 'Work', 'Fam', 0, 'yes', '2024-12-03 10:52:05', NULL, 'dswd', 0);
+(123, 'test', 'tes', 'test', 'test', 'Male', '2005-12-16', 19, 'test', 'Single', 2147483647, 'test', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 123, NULL, '2025-07-09 00:38:07', '/profile/people-face-avatar-icon-cartoon-character-png.png', 'scChapter', 0);
 
 -- --------------------------------------------------------
 
@@ -442,7 +397,7 @@ ALTER TABLE `seniorreq`
 -- AUTO_INCREMENT for table `admins`
 --
 ALTER TABLE `admins`
-  MODIFY `oscaID` int(250) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `oscaID` int(250) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `citizen`
