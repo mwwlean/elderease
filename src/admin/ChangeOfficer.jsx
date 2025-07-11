@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Navbar from './Navbar';
 import Sidebar from './Sidebar';
+import { UserSquare2 } from "lucide-react";
 import { useFormContext } from '../context/AdminFormContext';
 
 const ChangeOfficer = () => {
@@ -13,29 +14,27 @@ const ChangeOfficer = () => {
         if (storedAdminData && isAdminAuthenticated) {
             setAdminData(storedAdminData);
         }
-
     }, [isAdminAuthenticated]);
-
-
 
     const getImagePath = (imagePath) => {
         return imagePath ? `${imagePath}` : './img/123.jpg';
     };
     
     return (
-        <div className='dashboard-comp'>
+        <div className="min-h-screen bg-gradient-to-br from-white to-purple-50 flex flex-col">
             <Navbar getImagePath={getImagePath} adminData={adminData} />
-            <div className="dash-body flex items-start justify-between">
+            <div className="flex flex-1">
                 <Sidebar getImagePath={getImagePath} adminData={adminData}/>
-                <div className="dashboard-main">
-                    <div className="dash-title flex items-center justify-start gap-5 p-4">
-                        <h1 className='text-2xl'> Change Officers  </h1>
+                <main className="flex-1 px-8 py-8 ml-72">
+                    <div className="flex items-center gap-4 mb-8">
+                        <UserSquare2 size={32} className="text-purple-600" />
+                        <h1 className="text-3xl font-bold text-gray-800">Change Officers</h1>
                     </div>
-                </div>
-
+                    
+                </main>
             </div>
         </div>
-    )
+    );
 }
 
-export default ChangeOfficer
+export default ChangeOfficer;
