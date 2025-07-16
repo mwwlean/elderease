@@ -72,7 +72,9 @@ const SCChapter = () => {
 
   const getImagePath = (imagePath) => {
     // Return the path relative to the public directory
-    return imagePath ? `${imagePath}` : "./img/123.jpg";
+    return imagePath
+      ? `http://localhost/seniorpayment/profile/${imagePath}`
+      : "./img/123.jpg";
   };
 
   const handleFileChange = (file) => {
