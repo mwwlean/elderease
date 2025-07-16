@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Navbar from './Navbar';
 import Sidebar from './Sidebar';
+import { UserCog } from "lucide-react";
 import { useFormContext } from '../context/AdminFormContext';
 
 const ChangeAccUser = () => {
@@ -13,29 +14,27 @@ const ChangeAccUser = () => {
         if (storedAdminData && isAdminAuthenticated) {
             setAdminData(storedAdminData);
         }
-
     }, [isAdminAuthenticated]);
-
-
 
     const getImagePath = (imagePath) => {
         return imagePath ? `${imagePath}` : './img/123.jpg';
     };
-    
-    return (
-        <div className='dashboard-comp'>
-            <Navbar getImagePath={getImagePath} adminData={adminData} />
-            <div className="dash-body flex items-start justify-between">
-                <Sidebar getImagePath={getImagePath} adminData={adminData}/>
-                <div className="dashboard-main">
-                    <div className="dash-title flex items-center justify-start gap-5 p-4">
-                        <h1 className='text-2xl'> Change Access User  </h1>
-                    </div>
-                </div>
 
+    return (
+        <div className="min-h-screen bg-gradient-to-br from-white to-purple-50 flex flex-col">
+            <Navbar getImagePath={getImagePath} adminData={adminData} />
+            <div className="flex flex-1">
+                <Sidebar getImagePath={getImagePath} adminData={adminData}/>
+                <main className="flex-1 px-8 py-8 ml-72">
+                    <div className="flex items-center gap-4 mb-8">
+                        <UserCog size={32} className="text-purple-600" />
+                        <h1 className="text-3xl font-bold text-gray-800">Change Access User</h1>
+                    </div>
+                   
+                </main>
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default ChangeAccUser
+export default ChangeAccUser;
