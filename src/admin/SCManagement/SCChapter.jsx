@@ -182,7 +182,7 @@ const SCChapter = () => {
   const isRequired = (value) => value && value.trim() !== "";
   const isPositiveNumber = (value) => value && !isNaN(value) && value > 0;
   const isValidDate = (value) => value && /^\d{4}-\d{2}-\d{2}$/.test(value);
-  const isValidPhoneNumber = (value) => value && /^\d{10}$/.test(value);
+  const isValidPhoneNumber = (value) => value && /^\d{11}$/.test(value);
 
   const handleAddClick = (e) => {
     e.preventDefault(); // Prevent form submission
